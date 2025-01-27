@@ -1,0 +1,14 @@
+com\example\inventory\services\IPrintable.class
+com\example\inventory\model\Electronic.class
+com\example\inventory\services\InventoryManager.class
+com\example\inventory\DashboardFrame.class
+com\example\inventory\SupplierFrame.class
+com\example\inventory\LoginFrame.class
+com\example\inventory\Main.class
+com\example\inventory\model\ElectronicItem.class
+com\example\inventory\services\IFileOperations.class
+com\example\inventory\InventoryFrame.class
+com\example\inventory\InventoryTableModel.class
+com\example\inventory\model\AbstractItem.class
+com\example\inventory\model\PerishableItem.class
+com\example\inventory\utils\Validator.class
