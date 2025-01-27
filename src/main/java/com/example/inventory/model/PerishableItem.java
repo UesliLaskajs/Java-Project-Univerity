@@ -1,8 +1,6 @@
 package com.example.inventory.model;
 
-/**
- * Concrete class for items that are perishable (expiration-based).
- */
+
 public class PerishableItem extends AbstractItem {
     private int expirationDays;
 

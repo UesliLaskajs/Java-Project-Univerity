@@ -3,10 +3,7 @@ package com.example.inventory;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Example supplier management frame demonstrating
- * simple assertion usage, text area logging, etc.
- */
+
 public class SupplierFrame extends JFrame {
     private JTextField txtSupplierName, txtContact;
     private JTextArea textArea;

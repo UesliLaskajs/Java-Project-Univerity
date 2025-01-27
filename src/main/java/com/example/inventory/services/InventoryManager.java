@@ -36,7 +36,7 @@ public class InventoryManager implements IFileOperations, IPrintable {
     }
 
     private int partition(int low, int high) {
-        // Pivot = item name at "high" index
+
         String pivotName = items.get(high).getName().toLowerCase();
         int i = low - 1;
         for (int j = low; j < high; j++) {
@@ -49,7 +49,7 @@ public class InventoryManager implements IFileOperations, IPrintable {
                 items.set(j, temp);
             }
         }
-        // Place pivot in correct position
+
         AbstractItem temp = items.get(i + 1);
         items.set(i + 1, items.get(high));
         items.set(high, temp);
@@ -57,8 +57,7 @@ public class InventoryManager implements IFileOperations, IPrintable {
         return i + 1;
     }
 
-    // =========================== BINARY SEARCH (ALGORITHM) ===========================
-    // Assumes items are already sorted by name (via quickSortByName) 
+
     public AbstractItem binarySearchItemByName(String name) {
         return binarySearchHelper(name.toLowerCase(), 0, items.size() - 1);
     }
@@ -142,7 +141,7 @@ public class InventoryManager implements IFileOperations, IPrintable {
         }
     }
 
-    // =========================== PRINT ALL ITEMS (INTERFACE) ===========================
+
     @Override
     public void printAllItems() {
         // Example: sort before printing

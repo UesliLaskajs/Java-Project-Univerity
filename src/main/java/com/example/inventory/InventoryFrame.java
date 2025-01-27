@@ -61,7 +61,7 @@ public class InventoryFrame extends JFrame {
             topPanel.add(new JLabel(""));
         }
 
-        // ===================== MIDDLE BUTTON PANEL =====================
+
         JPanel btnPanel = new JPanel(new GridLayout(1, 4, 5, 5));
         btnAdd    = new JButton("Add");
         btnSave   = new JButton("Save to File");
@@ -73,7 +73,7 @@ public class InventoryFrame extends JFrame {
         btnPanel.add(btnLoad);
         btnPanel.add(btnDelete);
 
-        // ===================== SEARCH & SORT PANEL =====================
+ 
         JPanel searchSortPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
         searchSortPanel.setBorder(BorderFactory.createTitledBorder("Search & Sort"));
 
@@ -87,7 +87,7 @@ public class InventoryFrame extends JFrame {
         searchSortPanel.add(btnSearch);
         searchSortPanel.add(btnSort);
 
-        // Combine topPanel + searchSortPanel in one "north" area
+
         JPanel northPanel = new JPanel(new BorderLayout());
         northPanel.add(topPanel, BorderLayout.NORTH);
         northPanel.add(searchSortPanel, BorderLayout.SOUTH);
@@ -96,7 +96,7 @@ public class InventoryFrame extends JFrame {
         add(scrollPane,  BorderLayout.CENTER);
         add(btnPanel,    BorderLayout.SOUTH);
 
-        // ===================== EVENT LISTENERS =====================
+
         btnAdd.addActionListener(e -> addItem());
         btnSave.addActionListener(e -> {
             manager.writeToFile("src/main/java/com/example/inventory/resources/inventory_data.txt");
@@ -144,9 +144,9 @@ public class InventoryFrame extends JFrame {
             }
 
             manager.addItem(newItem);
-            tableModel.fireTableDataChanged();  // refresh table
+            tableModel.fireTableDataChanged();  
 
-            // Clear fields
+          
             txtName.setText("");
             txtQuantity.setText("");
             txtPrice.setText("");
@@ -158,14 +158,13 @@ public class InventoryFrame extends JFrame {
         }
     }
 
-    // Sort using Quicksort
     private void sortItems() {
-        manager.quickSortByName(); // quicksort all items by name
+        manager.quickSortByName(); 
         tableModel.fireTableDataChanged();
         JOptionPane.showMessageDialog(this, "Items sorted by name!");
     }
 
-    // Search using Binary Search
+
     private void searchItem() {
         String searchName = txtSearch.getText().trim();
         if (searchName.isEmpty()) {
@@ -173,10 +172,10 @@ public class InventoryFrame extends JFrame {
             return;
         }
 
-        // Because we're using a binary search, items must be sorted first
+
         manager.quickSortByName();
 
-        // Perform binary search
+
         AbstractItem found = manager.binarySearchItemByName(searchName);
         if (found != null) {
             JOptionPane.showMessageDialog(this,
@@ -185,7 +184,7 @@ public class InventoryFrame extends JFrame {
                 JOptionPane.INFORMATION_MESSAGE
             );
 
-            // Optionally highlight the found row in the table
+
             int rowIndex = manager.getItems().indexOf(found);
             if (rowIndex >= 0) {
                 inventoryTable.setRowSelectionInterval(rowIndex, rowIndex);
